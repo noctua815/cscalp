@@ -1,7 +1,86 @@
 .main {
   position: relative;
   width: 100%;
+  overflow: hidden;
 
+  & > *:not(.bg) {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.bg {
+  @include absolut-position;
+
+  &-gradient-1 {
+    position: absolute;
+    left: valueByWidth(425);
+    top: valueByWidth(-715);
+    width: 117vw;
+    height: 117vw;
+    background: rgba(241, 17, 205, 0.25);
+    filter: blur(292px);
+  }
+
+  &-gradient-2 {
+    position: absolute;
+    left: valueByWidth(-440);
+    top: valueByWidth(586);
+    width: 89vw;
+    height: 89vw;
+    background: rgba(53, 0, 115, 0.35);
+    filter: blur(292px);
+  }
+
+  &-gradient-3 {
+    position: absolute;
+    left: valueByWidth(-215);
+    top: valueByWidth(1990);
+    width: 100vw;
+    height: 100vw;
+    background: rgba(241, 17, 205, 0.1);
+    filter: blur(292px);
+  }
+
+  &-gradient-4 {
+    position: absolute;
+    left: valueByWidth(708);
+    top: valueByWidth(2750);
+    width: 90vw;
+    height: 90vw;
+    background: rgba(53, 0, 115, 0.4);
+    filter: blur(292px);
+  }
+
+  &-gradient-5 {
+    position: absolute;
+    left: valueByWidth(-1010);
+    top: valueByWidth(3670);
+    width: 133vw;
+    height: 133vw;
+    background: rgba(53, 0, 115, 0.2);
+    filter: blur(292px);
+  }
+
+  &-gradient-6 {
+    position: absolute;
+    left: valueByWidth(675);
+    top: valueByWidth(5216);
+    width: 1100vw;
+    height: 1100vw;
+    background: rgba(241, 17, 205, 0.2);
+    filter: blur(292px);
+  }
+
+  &-gradient-7 {
+    position: absolute;
+    left: valueByWidth(260);
+    top: valueByWidth(6726);
+    width: 90vw;
+    height: 90vw;
+    background: rgba(53, 0, 115, 0.4);
+    filter: blur(292px);
+  }
 }
 
 .wrapper {
@@ -13,7 +92,7 @@
 
 .logo {
   display: block;
-  width: 116px;
+  width: 154px;
   height: 24px;
   background: url("../images/logo.svg") no-repeat center/contain;
   transition: opacity .25s;
@@ -30,7 +109,7 @@
     & > div {
       display: flex;
       align-items: center;
-      flex: 1;
+      //flex: 1;
       padding: 32px 0;
     }
   }
@@ -63,23 +142,13 @@
   gap: 24px;
 }
 
-a {
-  color: $color-light;
-  line-height: 20px;
-  text-decoration: none;
-  transition: color $transition-time ease;
-
-  &:hover {
-    color: $color-primary;
-  }
-}
-
 .btn {
   position: relative;
   display: inline-flex;
   align-items: center;
   padding: 8px 26px 8px 24px;
   cursor: pointer;
+  user-select: none;
 
   &:hover {
     &:before {
@@ -106,14 +175,14 @@ a {
   }
 
   &__icon {
-    width: 14px;
-    height: 14px;
+    width: 20px;
+    height: 20px;
     background: url("../images/down.svg") no-repeat center/contain;
   }
 }
 
 .hero {
-  padding: 88px 0 120px;
+  padding: 88px 0 130px;
 
   &__wr {
     position: relative;
@@ -129,6 +198,7 @@ a {
 
   &__title {
     margin-bottom: 64px;
+    text-transform: uppercase;
   }
 
   &__descr {
@@ -148,13 +218,13 @@ a {
     background-color: #6666FF;
 
     img {
-     @include cover-img;
+      @include cover-img;
     }
   }
 
   &__down {
-    width: 54px;
-    height: 54px;
+    width: 80px;
+    height: 80px;
     margin: 0 auto;
     background: url("../images/down-big.svg") no-repeat center/contain;
     animation: MoveUpDown 2s ease-in infinite alternate;
@@ -176,12 +246,27 @@ a {
 
   &__grid {
     display: grid;
-    //grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: 'item item item'
     '. section-1 section-1'
     'section-2 section-2 .';
     gap: 24px;
+  }
+
+  &--course {
+    margin-top: 56px;
+
+    .section__title {
+      margin-bottom: 48px;
+    }
+
+    .double-item--right {
+
+    }
+  }
+
+  &--reasons {
+    margin-top: 56px;
   }
 }
 
@@ -190,7 +275,7 @@ a {
 
   &__img {
     position: relative;
-    margin-bottom: 24px;
+    margin-bottom: 14px;
     overflow: hidden;
 
     &:after {
@@ -220,18 +305,31 @@ a {
 
   &--right {
     grid-area: section-1;
-    margin-top: 152px;
+    margin-top: 95px;
   }
 
   &--left {
     grid-area: section-2;
-    margin-top: 120px;
+    margin-top: 95px;
+  }
+
+  &--terminal {
+    margin-top: 64px;
+    padding-top: 86px;
+
+    //p {
+    //  max-width: 360px;
+    //}
+  }
+
+  &--traders {
+    margin-top: 35px;
   }
 
   &__top {
     display: flex;
     gap: 24px;
-    margin-bottom: 64px;
+    margin-bottom: 60px;
   }
 
   &__title {
@@ -265,7 +363,7 @@ a {
   grid-area: item;
 
   &__list {
-    margin-bottom: 64px;
+    margin-bottom: 44px;
   }
 }
 
@@ -292,7 +390,7 @@ a {
     span:nth-child(2) {
       &:before {
         content: '-';
-        padding: 0 6px;
+        padding: 0 8px;
       }
     }
   }
@@ -302,8 +400,103 @@ a {
   }
 }
 
+.reason-descr {
+  & + & {
+    margin-top: 64px;
+  }
+}
+
+.subscribe-form {
+  grid-area: section-2 / 1;
+  margin-top: 35px;
+  padding-top: 56px;
+  border-top: 1px solid $color-light;
+
+  &__title {
+    margin-bottom: 32px;
+  }
+}
+
+.form {
+  max-width: 384px;
+
+  &__email {
+    margin-bottom: 32px;
+  }
+
+  button {
+    border: none;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    background: none;
+    color: $color-light;
+
+    &.btn {
+      height: 72px;
+      justify-content: center;
+    }
+
+    .btn__text {
+      font-size: 32px;
+      line-height: 40px;
+    }
+  }
+}
+
+.subscribe-form-message {
+  display: none;
+  grid-area: section-2;
+  padding: 32px 48px;
+  font-size: 32px;
+  line-height: 40px;
+  background: rgba($color-light, 0.05);
+  border: 2px solid $color-light;
+}
+
+.input-item {
+  position: relative;
+
+  &__field {
+    position: relative;
+    z-index: 1;
+    border: none;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    background: none;
+    font-size: 24px;
+    color: $color-light;
+    line-height: 32px;
+    padding: 10px 50px 10px 0;
+
+    &::placeholder {
+      color: $color-light;
+      opacity: 0.35;
+    }
+  }
+
+  &__border {
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: $color-primary;
+    transition: all $transition-time ease;
+  }
+
+  &__field:focus + &__border {
+    height: 4px;
+    transform: translateY(2px);
+  }
+}
+
 // Footer
 .footer {
+  margin-top: 120px;
+
   &__wr {
     display: flex;
     justify-content: space-between;
@@ -313,7 +506,7 @@ a {
   }
 
   &__col {
-    width: 25%;
+    width: 32%;
   }
 
   &__social {
@@ -332,7 +525,6 @@ a {
     text-transform: uppercase;
     font-size: 16px;
     line-height: 32px;
-    margin-bottom: 8px;
 
     a {
       text-decoration: underline;

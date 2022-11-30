@@ -1,7 +1,12 @@
 $basefontSize: 16;
+$layoutWidth: 1440;
 
 @function rem($val) {
   @return calc($val / $basefontSize) + rem;
+}
+
+@function valueByWidth($val) {
+  @return calc($val / $layoutWidth * 100) + vw;
 }
 
 @mixin placeholder {
