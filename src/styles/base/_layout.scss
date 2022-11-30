@@ -1,0 +1,166 @@
+.main {
+  position: relative;
+  width: 100%;
+
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1232px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: block;
+  width: 116px;
+  height: 24px;
+  background: url("../images/logo.svg") no-repeat center/contain;
+  transition: opacity .25s;
+}
+
+.header {
+  &__wr {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+    min-height: 112px;
+    border-bottom: 1px solid $color-light;
+
+    & > div {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      padding: 32px 0;
+    }
+  }
+
+  &__left {
+    width: 32.5%;
+  }
+
+  &__center {
+    width: 42%;
+    justify-content: center;
+    border-left: 1px solid $color-light;
+    border-right: 1px solid $color-light;
+
+    a {
+      display: block;
+      line-height: 32px;
+    }
+  }
+
+  &__right {
+    width: 25.5%;
+    justify-self: end;
+    justify-content: flex-end;
+  }
+}
+
+.menu {
+  display: flex;
+  gap: 24px;
+}
+
+a {
+  color: $color-light;
+  line-height: 20px;
+  text-decoration: none;
+  transition: color $transition-time ease;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 8px 26px 8px 24px;
+  cursor: pointer;
+
+  &:hover {
+    &:before {
+      border-width: 4px;
+    }
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+
+  &:before {
+    content: '';
+    z-index: -1;
+    @include absolut-position;
+    transition: border $transition-time ease;
+    border: 2px solid $color-primary;
+  }
+
+  &__text {
+    margin-right: 10px;
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  &__icon {
+    width: 14px;
+    height: 14px;
+    background: url("../images/down.svg") no-repeat center/contain;
+  }
+}
+
+.hero {
+  padding: 88px 0 120px;
+
+  &__wr {
+    position: relative;
+  }
+
+  &__text {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 67px;
+  }
+
+  &__title {
+    margin-bottom: 64px;
+  }
+
+  &__descr {
+    align-self: flex-end;
+    max-width: 560px;
+    text-align: right;
+  }
+
+  &__img {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 924px;
+    height: 403px;
+    background-color: #6666FF;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      overflow: hidden;
+    }
+  }
+
+  &__down {
+    width: 54px;
+    height: 54px;
+    margin: 0 auto;
+    background: url("../images/down-big.svg") no-repeat center/contain;
+  }
+}
+
+
