@@ -96,6 +96,16 @@
   height: 24px;
   background: url("../images/logo.svg") no-repeat center/contain;
   transition: opacity .25s;
+
+  @include for-table {
+    width: 108px;
+    height: 16px;
+  }
+
+  @include for-mobile {
+    width: 82px;
+    height: 12px;
+  }
 }
 
 .header {
@@ -103,19 +113,30 @@
     display: flex;
     align-items: stretch;
     justify-content: space-around;
-    min-height: 112px;
     border-bottom: 1px solid $color-light;
+
+    @include for-mobile {
+      flex-wrap: wrap;
+      border: none;
+    }
 
     & > div {
       display: flex;
       align-items: center;
-      //flex: 1;
-      padding: 32px 0;
+      padding: clamp-calc(720px, 1440px, 16px, 32px) 0;
     }
   }
 
   &__left {
     width: 32.5%;
+
+    @include for-table {
+      width: 24%;
+    }
+
+    @include for-mobile {
+      width: 37%;
+    }
   }
 
   &__center {
@@ -123,6 +144,17 @@
     justify-content: center;
     border-left: 1px solid $color-light;
     border-right: 1px solid $color-light;
+
+    @include for-table {
+      width: 50%;
+    }
+
+    @include for-mobile {
+      border-right: none;
+      width: auto;
+      flex: 1;
+      justify-content: flex-end;
+    }
 
     a {
       display: block;
@@ -134,19 +166,37 @@
     width: 25.5%;
     justify-self: end;
     justify-content: flex-end;
+
+    @include for-mobile {
+      width: 100%;
+      border-top: 1px solid $color-light;
+      justify-content: center;
+      padding: 14px 0 !important;
+    }
   }
 }
 
 .menu {
   display: flex;
-  gap: 24px;
+  gap: clamp-calc(720px, 1440px, 16px, 24px);
+
+  a {
+    font-size: clamp-calc(720px, 1440px, 12px, 16px);
+
+    @include for-mobile {
+      font-size: 10px;
+    }
+  }
 }
 
 .btn {
   position: relative;
   display: inline-flex;
   align-items: center;
-  padding: 8px 26px 8px 24px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: clamp-calc(720px, 1440px, 12px, 24px);
+  padding-right: clamp-calc(720px, 1440px, 12px, 26px);
   cursor: pointer;
   user-select: none;
 
@@ -170,8 +220,8 @@
 
   &__text {
     margin-right: 10px;
-    font-size: 24px;
-    line-height: 32px;
+    font-size: clamp-calc(720px, 1440px, 16px, 24px);
+    line-height: clamp-calc(720px, 1440px, 18px, 32px);
   }
 
   &__icon {
@@ -182,7 +232,12 @@
 }
 
 .hero {
-  padding: 88px 0 130px;
+  padding-top: clamp-calc(720px, 1440px, 44px, 88px);
+  padding-bottom: clamp-calc(720px, 1440px, 80px, 130px);
+
+  @include for-mobile {
+    padding: 32px 0 70px;
+  }
 
   &__wr {
     position: relative;
@@ -193,17 +248,17 @@
     z-index: 1;
     display: flex;
     flex-direction: column;
-    margin-bottom: 67px;
+    margin-bottom: value-by-width(67);
   }
 
   &__title {
-    margin-bottom: 64px;
+    margin-bottom: value-by-width(64);
     text-transform: uppercase;
   }
 
   &__descr {
     align-self: flex-end;
-    max-width: 560px;
+    width: value-by-width(792);
     text-align: right;
   }
 
@@ -212,10 +267,14 @@
     z-index: 0;
     top: 0;
     right: 0;
-    width: 100%;
-    max-width: 924px;
-    height: 403px;
-    background-color: #6666FF;
+    width: value-by-width(924);
+    overflow: hidden;
+
+    &:after {
+      content: '';
+      padding-top: 43.6%;
+      float: left;
+    }
 
     img {
       @include cover-img;
@@ -223,25 +282,42 @@
   }
 
   &__down {
-    width: 80px;
-    height: 80px;
+    width: clamp-calc(720px, 1440px, 48px, 80px);
+    height: clamp-calc(720px, 1440px, 48px, 80px);
     margin: 0 auto;
     background: url("../images/down-big.svg") no-repeat center/contain;
     animation: MoveUpDown 2s ease-in infinite alternate;
+
+    @include for-mobile {
+      width: 24px;
+      height: 24px;
+    }
   }
 }
 
 
 .section {
   border-top: 1px solid $color-light;
-  padding-top: 56px;
+  padding-top: clamp-calc(720px, 1440px, 40px, 56px);
+
+  @include for-mobile {
+    padding-top: 32px;
+  }
 
   &__title {
-    margin-bottom: 64px;
+    margin-bottom: clamp-calc(720px, 1440px, 32px, 64px);
+
+    @include for-mobile {
+      padding-top: 16px;
+    }
   }
 
   &__text {
-    margin-bottom: 64px;
+    margin-bottom: clamp-calc(720px, 1440px, 32px, 64px);
+
+    @include for-mobile {
+      padding-top: 16px;
+    }
   }
 
   &__grid {
@@ -250,23 +326,35 @@
     grid-template-areas: 'item item item'
     '. section-1 section-1'
     'section-2 section-2 .';
-    gap: 24px;
+    gap: clamp-calc(720px, 1440px, 16px, 24px);
+
+    @include for-mobile {
+      gap: 8px;
+    }
   }
 
   &--course {
-    margin-top: 56px;
+    margin-top: clamp-calc(720px, 1440px, 80px, 120px);
 
-    .section__title {
-      margin-bottom: 48px;
+    @include for-mobile {
+      margin-top: 64px;
     }
 
-    .double-item--right {
+    .section__title {
+      margin-bottom: clamp-calc(720px, 1440px, 24px, 48px);
 
+      @include for-mobile {
+        margin-bottom: 16px;
+      }
     }
   }
 
   &--reasons {
-    margin-top: 56px;
+    margin-top: clamp-calc(720px, 1440px, 80px, 120px);
+
+    @include for-mobile {
+      margin-top: 60px;
+    }
   }
 }
 
@@ -301,50 +389,87 @@
 
 .double-item {
   border-top: 1px solid $color-light;
-  padding-top: 56px;
+  padding-top: clamp-calc(720px, 1440px, 40px, 56px);
 
   &--right {
     grid-area: section-1;
-    margin-top: 95px;
+    margin-top: clamp-calc(720px, 1440px, 40px, 95px);
+
+    @include for-table {
+      grid-area: inherit;
+      grid-column: 1/-1;
+    }
   }
 
   &--left {
     grid-area: section-2;
-    margin-top: 95px;
+    margin-top: clamp-calc(720px, 1440px, 60px, 95px);
+
+    @include for-table {
+      grid-area: inherit;
+      grid-column: 1/-1;
+    }
+
+    @include for-mobile {
+      margin-top: 56px;
+    }
   }
 
   &--terminal {
-    margin-top: 64px;
-    padding-top: 86px;
+    margin-top: clamp-calc(720px, 1440px, 32px, 64px);
+    padding-top: clamp-calc(720px, 1440px, 40px, 86px);
 
-    //p {
-    //  max-width: 360px;
-    //}
+    @include for-mobile {
+      margin-top: 24px;
+      padding-top: 30px;
+    }
   }
 
   &--traders {
-    margin-top: 35px;
+    margin-top: clamp-calc(720px, 1440px, 60px, 100px);
+
+    @include for-mobile {
+      margin-top: 40px;
+    }
   }
 
   &__top {
     display: flex;
-    gap: 24px;
-    margin-bottom: 60px;
+    gap: clamp-calc(720px, 1440px, 16px, 24px);
+
+    @include for-mobile {
+      gap: 8px;
+    }
+  }
+
+  &__top + * {
+    margin-bottom: clamp-calc(720px, 1440px, 32px, 60px);
+    @include for-mobile {
+      margin-bottom: 16px;
+    }
   }
 
   &__title {
-    margin-bottom: 64px;
+    margin-bottom: clamp-calc(720px, 1440px, 32px, 64px);
   }
 
   &__text {
     flex: 1;
 
     h2 {
-      margin-bottom: 64px;
+      margin-bottom: clamp-calc(720px, 1440px, 32px, 64px);
+
+      @include for-mobile {
+        margin-bottom: 16px;
+      }
     }
 
     .extra-text {
-      margin-bottom: 64px;
+      margin-bottom: clamp-calc(720px, 1440px, 32px, 64px);
+
+      @include for-mobile {
+        margin-bottom: 16px;
+      }
     }
 
   }
@@ -363,7 +488,7 @@
   grid-area: item;
 
   &__list {
-    margin-bottom: 44px;
+    margin-bottom: clamp-calc(720px, 1440px, 24px, 44px);
   }
 }
 
@@ -371,20 +496,29 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: clamp-calc(720px, 1440px, 16px, 24px);
   padding: 16px 0;
+
+  @include for-mobile {
+    gap: 8px;
+  }
 
   & + & {
     border-top: 1px solid $color-light;
   }
 
   &__name {
-    font-size: 32px;
-    line-height: 40px;
+    width: 65%;
+    font-size: clamp-calc(720px, 1440px, 20px, 32px);
+    line-height: 1.25;
+
+    @include for-mobile {
+      font-size: 16px;
+    }
 
     span:nth-child(1) {
       display: inline-block;
-      width: 26px;
+      width: clamp-calc(720px, 1440px, 14px, 26px);
     }
 
     span:nth-child(2) {
@@ -396,24 +530,43 @@
   }
 
   &__descr {
+    width: 35%;
     max-width: 384px;
   }
 }
 
 .reason-descr {
   & + & {
-    margin-top: 64px;
+    margin-top: clamp-calc(720px, 1440px, 32px, 64px);
+
+    @include for-mobile {
+      margin-top: 16px;
+    }
   }
 }
 
 .subscribe-form {
   grid-area: section-2 / 1;
-  margin-top: 35px;
-  padding-top: 56px;
+  margin-top: clamp-calc(720px, 1440px, 60px, 100px);
+  padding-top: clamp-calc(720px, 1440px, 40px, 56px);
   border-top: 1px solid $color-light;
 
+  @include for-mobile {
+    margin-top: 40px;
+    padding-top: 32px;
+  }
+
+  @include for-table {
+    grid-area: inherit;
+    grid-column: 1 / -1;
+
+    & > * {
+      width: calc(50% - 12px);
+    }
+  }
+
   &__title {
-    margin-bottom: 32px;
+    margin-bottom: clamp-calc(720px, 1440px, 16px, 32px);
   }
 }
 
@@ -421,7 +574,11 @@
   max-width: 384px;
 
   &__email {
-    margin-bottom: 32px;
+    margin-bottom: clamp-calc(720px, 1440px, 16px, 32px);
+
+    @include for-mobile {
+      margin-bottom: 8px;
+    }
   }
 
   button {
@@ -433,13 +590,21 @@
     color: $color-light;
 
     &.btn {
-      height: 72px;
+      height: clamp-calc(720px, 1440px, 40px, 72px);
       justify-content: center;
+
+      @include for-mobile {
+        height: 32px;
+      }
     }
 
     .btn__text {
-      font-size: 32px;
-      line-height: 40px;
+      font-size: clamp-calc(720px, 1440px, 20px, 32px);
+      line-height: 1.25;
+
+      @include for-mobile {
+        font-size: 14px;
+      }
     }
   }
 }
@@ -465,10 +630,14 @@
     height: 100%;
     outline: none;
     background: none;
-    font-size: 24px;
+    font-size: clamp-calc(720px, 1440px, 16px, 24px);
     color: $color-light;
-    line-height: 32px;
+    line-height: 2;
     padding: 10px 50px 10px 0;
+
+    @include for-mobile {
+      font-size: 12px;
+    }
 
     &::placeholder {
       color: $color-light;
@@ -495,14 +664,25 @@
 
 // Footer
 .footer {
-  margin-top: 120px;
+  margin-top: clamp-calc(720px, 1440px, 80px, 120px);
+
+  @include for-mobile {
+    margin-top: 64px;
+  }
 
   &__wr {
     display: flex;
     justify-content: space-between;
-    gap: 24px;
-    padding: 56px 0 120px;
+    gap: clamp-calc(720px, 1440px, 16px, 24px);
+    padding-top: clamp-calc(720px, 1440px, 40px, 56px);
+    padding-bottom: clamp-calc(720px, 1440px, 80px, 120px);
     border-top: 1px solid $color-light;
+
+    @include for-mobile {
+      gap: 8px;
+      padding-top: 32px;
+      padding-bottom: 64px;
+    }
   }
 
   &__col {
@@ -514,8 +694,7 @@
   }
 
   &__copyrights {
-    font-size: 16px;
-    line-height: 32px;
+    line-height: 2;
     text-transform: uppercase;
   }
 }
@@ -523,8 +702,12 @@
 .footer-links {
   &__item {
     text-transform: uppercase;
-    font-size: 16px;
-    line-height: 32px;
+    font-size: clamp-calc(720px, 1440px, 12px, 16px);
+    line-height: 2;
+
+    @include for-mobile {
+      margin-top: 10px;
+    }
 
     a {
       text-decoration: underline;
@@ -539,14 +722,22 @@
 
 .social {
   display: flex;
-  gap: 24px;
+  gap: clamp-calc(720px, 1440px, 16px, 24px);
+
+  @include for-mobile {
+    gap: 8px;
+  }
 }
 
 .social-item {
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: clamp-calc(720px, 1440px, 16px, 24px);
+  height: clamp-calc(720px, 1440px, 16px, 24px);
   transition: opacity $transition-time ease;
+
+  @include for-mobile {
+    gap: 8px;
+  }
 
   &:hover {
     opacity: 0.7;

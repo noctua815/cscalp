@@ -5,8 +5,15 @@ $layoutWidth: 1440;
   @return calc($val / $basefontSize) + rem;
 }
 
-@function valueByWidth($val) {
+@function value-by-width($val) {
   @return calc($val / $layoutWidth * 100) + vw;
+}
+
+@function clamp-calc($min-width, $max-width, $size-at-min-width, $size-at-max-width) {
+  $slope: ($size-at-max-width - $size-at-min-width) / ($max-width - $min-width);
+  $y-axis-intersection: -1 * $min-width * $slope + $size-at-min-width;
+  $return-value: clamp(#{$size-at-min-width}, #{$y-axis-intersection} + #{$slope} * 100vw, #{$size-at-max-width});
+  @return $return-value;
 }
 
 @mixin placeholder {
@@ -41,25 +48,10 @@ $layoutWidth: 1440;
   overflow: hidden;
 }
 
-@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
-  // For Google Chrome
-  &::-webkit-scrollbar {
-    width:  $size;
-    height: $size;
-  }
+@mixin for-table {
+  @media (max-width: $tablet) { @content; }
+}
 
-  &::-webkit-scrollbar-thumb {
-    background: $foreground-color;
-    border-radius: 4px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: $background-color;
-  }
-
-  // For Internet Explorer
-  body {
-    scrollbar-face-color: $foreground-color;
-    scrollbar-track-color: $background-color;
-  }
+@mixin for-mobile {
+  @media (max-width: $mobile) { @content; }
 }
