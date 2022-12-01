@@ -13,17 +13,24 @@ const initScroll = () => {
 }
 
 const initSubscribe = () => {
-
-}
-
-const calcClamp = (minSize, maxSize) => {
-  const width = 1440
+  const form = document.getElementById('subscribe-form')
+  const btn = form.querySelector('button')
+  const input = form.querySelector('input')
   
-  const value1 = (maxSize / width * 102).toFixed(1)
-  return `clamp(${minSize}px, ${value1}vw, ${maxSize}px)`
+  input.addEventListener('input', (event) => {
+    const email = event.target.value
+    const valid = validateEmail(email)
+    btn.disabled = !valid
+  })
 }
-console.log(calcClamp(16, 32))
+
+const validateEmail = (email) => {
+  return !!String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+};
+
 initScroll()
 initSubscribe()
-
-// console.log()

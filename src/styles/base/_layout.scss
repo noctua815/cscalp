@@ -12,74 +12,65 @@
 .bg {
   @include absolut-position;
 
-  &-gradient-1 {
+  &-gradient {
     position: absolute;
-    left: valueByWidth(425);
-    top: valueByWidth(-715);
+    filter: blur(292px);
+  }
+
+  &-gradient-1 {
+    left: value-by-width(425);
+    top: value-by-width(-715);
     width: 117vw;
     height: 117vw;
     background: rgba(241, 17, 205, 0.25);
-    filter: blur(292px);
   }
 
   &-gradient-2 {
-    position: absolute;
-    left: valueByWidth(-440);
-    top: valueByWidth(586);
+    left: value-by-width(-440);
+    top: value-by-width(586);
     width: 89vw;
     height: 89vw;
     background: rgba(53, 0, 115, 0.35);
-    filter: blur(292px);
   }
 
   &-gradient-3 {
-    position: absolute;
-    left: valueByWidth(-215);
-    top: valueByWidth(1990);
+    left: value-by-width(-215);
+    top: value-by-width(1990);
     width: 100vw;
     height: 100vw;
     background: rgba(241, 17, 205, 0.1);
-    filter: blur(292px);
   }
 
   &-gradient-4 {
-    position: absolute;
-    left: valueByWidth(708);
-    top: valueByWidth(2750);
+    left: value-by-width(708);
+    top: value-by-width(2750);
     width: 90vw;
     height: 90vw;
     background: rgba(53, 0, 115, 0.4);
-    filter: blur(292px);
   }
 
   &-gradient-5 {
-    position: absolute;
-    left: valueByWidth(-1010);
-    top: valueByWidth(3670);
+    left: value-by-width(-1010);
+    top: value-by-width(3670);
     width: 133vw;
     height: 133vw;
     background: rgba(53, 0, 115, 0.2);
-    filter: blur(292px);
   }
 
   &-gradient-6 {
-    position: absolute;
-    left: valueByWidth(675);
-    top: valueByWidth(5216);
+    left: value-by-width(675);
+    top: value-by-width(5216);
     width: 1100vw;
     height: 1100vw;
     background: rgba(241, 17, 205, 0.2);
-    filter: blur(292px);
   }
 
   &-gradient-7 {
-    position: absolute;
-    left: valueByWidth(260);
-    top: valueByWidth(6726);
+    left: value-by-width(260);
+    top: value-by-width(6726);
     width: 90vw;
     height: 90vw;
     background: rgba(53, 0, 115, 0.4);
-    filter: blur(292px);
   }
 }
 
@@ -199,6 +190,7 @@
   padding-right: clamp-calc(720px, 1440px, 12px, 26px);
   cursor: pointer;
   user-select: none;
+  transition: all $transition-time ease;
 
   &:hover {
     &:before {
@@ -259,6 +251,7 @@
   &__descr {
     align-self: flex-end;
     width: value-by-width(792);
+    max-width: 600px;
     text-align: right;
   }
 
@@ -268,6 +261,7 @@
     top: 0;
     right: 0;
     width: value-by-width(924);
+    max-width: 924px;
     overflow: hidden;
 
     &:after {
@@ -443,9 +437,10 @@
   }
 
   &__top + * {
-    margin-bottom: clamp-calc(720px, 1440px, 32px, 60px);
+    margin-top: clamp-calc(720px, 1440px, 32px, 60px);
+
     @include for-mobile {
-      margin-bottom: 16px;
+      margin-top: 16px;
     }
   }
 
@@ -589,6 +584,12 @@
     background: none;
     color: $color-light;
 
+    &:disabled,
+    &[disabled]{
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
     &.btn {
       height: clamp-calc(720px, 1440px, 40px, 72px);
       justify-content: center;
@@ -662,6 +663,21 @@
   }
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+input[data-autocompleted] {
+  background-color: transparent !important;
+}
 // Footer
 .footer {
   margin-top: clamp-calc(720px, 1440px, 80px, 120px);

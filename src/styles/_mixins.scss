@@ -10,7 +10,7 @@ $layoutWidth: 1440;
 }
 
 @function clamp-calc($min-width, $max-width, $size-at-min-width, $size-at-max-width) {
-  $slope: ($size-at-max-width - $size-at-min-width) / ($max-width - $min-width);
+  $slope:  calc(($size-at-max-width - $size-at-min-width) / ($max-width - $min-width));
   $y-axis-intersection: -1 * $min-width * $slope + $size-at-min-width;
   $return-value: clamp(#{$size-at-min-width}, #{$y-axis-intersection} + #{$slope} * 100vw, #{$size-at-max-width});
   @return $return-value;
@@ -22,16 +22,6 @@ $layoutWidth: 1440;
   &::-moz-placeholder          {@content}
   &:-ms-input-placeholder      {@content}
 }
-
-//@mixin white-block {
-//  border-radius: $base-border-radius;
-//  background-color: $color-light;
-//  transition: box-shadow $transition-time ease;
-//
-//  &:hover {
-//    box-shadow: 0 20px 40px rgba(13,11,33, 0.162342);
-//  }
-//}
 
 @mixin absolut-position {
   position: absolute;
