@@ -1,0 +1,72 @@
+.sp-form {
+  width: 100%!important;
+  border: none!important;
+  padding: 0!important;
+}
+
+.sp-form-fields-wrapper {
+  width: 100%!important;
+}
+.sp-form .sp-lg .sp-field .sp-form-control {
+  font-family: $font-family!important;
+  border: none;
+  border-bottom: 2px solid $color-primary;
+  width: 100%!important;
+  height: 100%!important;
+  outline: none;
+  background: none;
+  font-size: clamp-calc(720px, 1440px, 16px, 24px)!important;
+  color: $color-light;
+  line-height: 2;
+  padding: 10px 50px 10px 0!important;
+
+  @include for-mobile {
+    font-size: 12px!important;
+  }
+
+  &::placeholder {
+    color: $color-light;
+    opacity: 0.35;
+  }
+}
+
+.sp-control-label {
+  display: none!important;
+}
+
+.sp-form .sp-button-container {
+  margin-top: clamp-calc(720px, 1440px, 16px, 32px) !important;
+
+}
+
+.sp-form .sp-field {
+  padding: 0!important;
+}
+
+.sp-form .sp-lg .sp-field .sp-button {
+  font-family: $font-family!important;
+  height: clamp-calc(720px, 1440px, 40px, 72px)!important;
+  font-size: clamp-calc(720px, 1440px, 20px, 32px)!important;
+  line-height: 1.25!important;
+  border: none;
+  width: 100%;
+  outline: none;
+  background: none;
+  color: $color-light;
+  border: 2px solid $color-primary;
+  transition: all $transition-time ease;
+
+  @include for-mobile {
+    font-size: 14px!important;
+  }
+}
+
+.sp-form .sp-button:hover {
+  top: 0!important;
+  border-width: 4px!important;
+}
+
+.sp-link-wrapper.sp-brandname__left {
+  opacity: 0;
+  visibility: hidden;
+}

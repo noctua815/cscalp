@@ -1,7 +1,6 @@
 .main {
   position: relative;
   width: 100%;
-  //overflow: hidden;
 
   & > *:not(.bg) {
     position: relative;
@@ -542,6 +541,7 @@
 }
 
 .subscribe-form {
+  position: relative;
   grid-area: section-2 / 1;
   margin-top: clamp-calc(720px, 1440px, 60px, 100px);
   padding-top: clamp-calc(720px, 1440px, 40px, 56px);
@@ -563,6 +563,22 @@
 
   &__title {
     margin-bottom: clamp-calc(720px, 1440px, 16px, 32px);
+  }
+
+  &__arrow {
+    position: absolute;
+    width: clamp-calc(720px, 1440px, 48px, 80px);
+    height: clamp-calc(720px, 1440px, 48px, 80px);
+    background: red;
+    top: 50%;
+    left: value-by-width(700);
+    transform: translateY(-50%) rotate(90deg);
+    background: url("../images/down-big.svg") no-repeat center/contain;
+
+    @include for-mobile {
+      width: 32px;
+      height: 32px;
+    }
   }
 }
 
@@ -681,7 +697,7 @@ input[data-autocompleted] {
 }
 // Footer
 .footer {
-  margin-top: clamp-calc(720px, 1440px, 80px, 120px);
+  margin-top: clamp-calc(720px, 1440px, 80px, 90px);
 
   @include for-mobile {
     margin-top: 64px;

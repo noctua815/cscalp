@@ -22,6 +22,12 @@ const initSubscribe = () => {
     const valid = validateEmail(email)
     btn.disabled = !valid
   })
+  
+  form.addEventListener('submit', (event) => {
+    event.preventDefault()
+    console.log('event', event)
+  
+  })
 }
 
 const validateEmail = (email) => {
