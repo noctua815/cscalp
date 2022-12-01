@@ -1,7 +1,7 @@
 .main {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  //overflow: hidden;
 
   & > *:not(.bg) {
     position: relative;
@@ -11,6 +11,7 @@
 
 .bg {
   @include absolut-position;
+  overflow: hidden;
 
   &-gradient {
     position: absolute;
@@ -60,8 +61,8 @@
   &-gradient-6 {
     left: value-by-width(675);
     top: value-by-width(5216);
-    width: 1100vw;
-    height: 1100vw;
+    width: 110vw;
+    height: 110vw;
     background: rgba(241, 17, 205, 0.2);
   }
 
