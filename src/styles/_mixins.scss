@@ -38,7 +38,7 @@ $layoutWidth: 1440;
   overflow: hidden;
 }
 
-@mixin for-table {
+@mixin for-tablet {
   @media (max-width: $tablet) { @content; }
 }
 

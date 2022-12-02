@@ -88,7 +88,7 @@
   background: url("../images/logo.svg") no-repeat center/contain;
   transition: opacity .25s;
 
-  @include for-table {
+  @include for-tablet {
     width: 108px;
     height: 16px;
   }
@@ -121,7 +121,7 @@
   &__left {
     width: 32.5%;
 
-    @include for-table {
+    @include for-tablet {
       width: 24%;
     }
 
@@ -136,7 +136,7 @@
     border-left: 1px solid $color-light;
     border-right: 1px solid $color-light;
 
-    @include for-table {
+    @include for-tablet {
       width: 50%;
     }
 
@@ -389,7 +389,7 @@
     grid-area: section-1;
     margin-top: clamp-calc(720px, 1440px, 40px, 95px);
 
-    @include for-table {
+    @include for-tablet {
       grid-area: inherit;
       grid-column: 1/-1;
     }
@@ -399,7 +399,7 @@
     grid-area: section-2;
     margin-top: clamp-calc(720px, 1440px, 60px, 95px);
 
-    @include for-table {
+    @include for-tablet {
       grid-area: inherit;
       grid-column: 1/-1;
     }
@@ -552,7 +552,7 @@
     padding-top: 32px;
   }
 
-  @include for-table {
+  @include for-tablet {
     grid-area: inherit;
     grid-column: 1 / -1;
 
@@ -575,9 +575,10 @@
     transform: translateY(-50%) rotate(90deg);
     background: url("../images/down-big.svg") no-repeat center/contain;
 
-    @include for-mobile {
+    @include for-tablet {
       width: 32px;
       height: 32px;
+      left: value-by-width(900);
     }
   }
 }

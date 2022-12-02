@@ -1,24 +1,39 @@
+.sp-form-outer .sp-message {
+  font-family: $font-family!important;
+  color: $color-light!important;
+  font-size: clamp-calc(720px, 1440px, 16px, 32px)!important;
+  background: none!important;
+
+}
 .sp-form {
   width: 100%!important;
   border: none!important;
   padding: 0!important;
+  background: none!important;
 }
 
 .sp-form-fields-wrapper {
   width: 100%!important;
 }
-.sp-form .sp-lg .sp-field .sp-form-control {
+.sp-form[sp-id="218369"] .sp-form-fields-wrapper {
+
+}
+.sp-form[sp-id="218393"] .sp-form-control {
   font-family: $font-family!important;
-  border: none;
-  border-bottom: 2px solid $color-primary;
+  border: none!important;
+  border-bottom: 2px solid $color-primary!important;
+  border-radius: 0!important;
   width: 100%!important;
   height: 100%!important;
   outline: none;
-  background: none;
+  background: none!important;
   font-size: clamp-calc(720px, 1440px, 16px, 24px)!important;
   color: $color-light;
   line-height: 2;
   padding: 10px 50px 10px 0!important;
+  transition: all $transition-time ease;
+  cursor: pointer;
+  user-select: none;
 
   @include for-mobile {
     font-size: 12px!important;
@@ -27,6 +42,11 @@
   &::placeholder {
     color: $color-light;
     opacity: 0.35;
+  }
+
+  &:focus {
+    border-width: 4px!important;
+    margin-bottom: -2px;
   }
 }
 
@@ -43,22 +63,27 @@
   padding: 0!important;
 }
 
-.sp-form .sp-lg .sp-field .sp-button {
+.sp-form[sp-id="218393"] .sp-button{
+  width: 100%!important;
   font-family: $font-family!important;
   height: clamp-calc(720px, 1440px, 40px, 72px)!important;
   font-size: clamp-calc(720px, 1440px, 20px, 32px)!important;
+  font-weight: 300!important;
   line-height: 1.25!important;
-  border: none;
-  width: 100%;
+  //border: none!important;
   outline: none;
-  background: none;
+  background: none!important;
   color: $color-light;
-  border: 2px solid $color-primary;
-  transition: all $transition-time ease;
+  border: 2px solid $color-primary!important;
+  border-radius: 0!important;
+  transition: all $transition-time ease!important;
 
   @include for-mobile {
     font-size: 14px!important;
   }
+}
+.sp-form .btn-loading:before {
+  background-color: $color-primary!important;
 }
 
 .sp-form .sp-button:hover {
