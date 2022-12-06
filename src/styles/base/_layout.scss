@@ -189,16 +189,19 @@
   padding-left: clamp-calc(720px, 1440px, 12px, 24px);
   padding-right: clamp-calc(720px, 1440px, 12px, 26px);
   cursor: pointer;
+  color: $color-light;
   user-select: none;
   transition: all $transition-time ease;
 
   &:hover {
+    color: $color-light;
     &:before {
       border-width: 4px;
     }
   }
 
   &:active {
+    color: $color-light;
     opacity: 0.8;
   }
 
