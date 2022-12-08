@@ -10,6 +10,19 @@ const initScroll = () => {
       })
     })
   })
+  
+  const links = document.querySelectorAll('.scroll-link')
+  
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      const id = link.dataset.section
+      const y = document.getElementById(id).getBoundingClientRect().top + window.scrollY
+      window.scroll({
+        top: y,
+        behavior: 'smooth'
+      })
+    })
+  })
 }
 
 const initSubscribe = () => {

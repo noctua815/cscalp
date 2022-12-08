@@ -173,6 +173,7 @@
 
   a {
     font-size: clamp-calc(720px, 1440px, 12px, 16px);
+    cursor: pointer;
 
     @include for-mobile {
       font-size: 10px;
