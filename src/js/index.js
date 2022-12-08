@@ -29,7 +29,7 @@ const initSubscribe = () => {
   const form = document.querySelector('form.sp-element-container')
   const btn = form.querySelector('button')
   const input = form.querySelector('input')
-
+  
   input.addEventListener('input', (event) => {
     const email = event.target.value
     const valid = validateEmail(email)
@@ -40,6 +40,14 @@ const initSubscribe = () => {
       btn.classList.add('is-disabled')
     }
   })
+  btn.addEventListener('click', (event) => {
+    sendMetric()
+  })
+}
+
+const sendMetric = async () => {
+  const email = document.querySelector('input.sp-form-control').value
+  fbq('track', 'Subscribe', {email})
 }
 
 const validateEmail = (email) => {
