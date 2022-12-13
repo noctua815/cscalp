@@ -14,7 +14,12 @@
 
   &-gradient {
     position: absolute;
-    filter: blur(292px);
+    filter: blur(290px);
+    border-radius: 50%;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
   }
 
   &-gradient-1 {
@@ -372,6 +377,7 @@
     }
 
     img {
+      position: absolute;
       @include cover-img;
     }
   }
@@ -705,7 +711,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
 }
 
 input:-webkit-autofill,
