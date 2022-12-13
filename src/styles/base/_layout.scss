@@ -196,6 +196,7 @@
 
   &:hover {
     color: $color-light;
+
     &:before {
       border-width: 4px;
     }
@@ -544,6 +545,21 @@
   }
 }
 
+.reasons-block {
+
+  @include for-mobile {
+    grid-column: 1/-1;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    @include for-tablet {
+      font-size: clamp-calc(500px, 800px, 24px, 32px);;
+    }
+  }
+
+}
+
 .subscribe-form {
   position: relative;
   grid-area: section-2 / 1;
@@ -575,7 +591,7 @@
     height: clamp-calc(720px, 1440px, 48px, 80px);
     background: red;
     top: 50%;
-    left: value-by-width(700);
+    left: clamp(400px, 49vw, 770px);
     transform: translateY(-50%) rotate(90deg);
     background: url("../images/down-big.svg") no-repeat center/contain;
 
@@ -607,7 +623,7 @@
     color: $color-light;
 
     &:disabled,
-    &[disabled]{
+    &[disabled] {
       opacity: 0.35;
       pointer-events: none;
     }
@@ -700,6 +716,7 @@ input:-webkit-autofill:focus {
 input[data-autocompleted] {
   background-color: transparent !important;
 }
+
 // Footer
 .footer {
   margin-top: clamp-calc(720px, 1440px, 80px, 90px);
@@ -725,6 +742,12 @@ input[data-autocompleted] {
 
   &__col {
     width: 32%;
+
+    &:nth-child(2) {
+      @include for-mobile {
+        padding-left: 8px;
+      }
+    }
   }
 
   &__social {
@@ -741,10 +764,13 @@ input[data-autocompleted] {
   &__item {
     text-transform: uppercase;
     font-size: clamp-calc(720px, 1440px, 12px, 16px);
-    line-height: 2;
+    line-height: 1.6;
+    margin-bottom: 7px;
 
     @include for-mobile {
-      margin-top: 10px;
+      font-size: 10px;
+      margin-bottom: 8px;
+      line-height: 1.33;
     }
 
     a {
