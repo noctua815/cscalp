@@ -16,6 +16,10 @@
   width: 100%!important;
 }
 
+.sp-field.sp-field-email {
+  margin-bottom: clamp-calc(720px, 1440px, 12px, 24px);
+}
+
 .sp-form[sp-id="218393"] .sp-form-control {
   font-family: $font-family!important;
   border: none!important;
@@ -30,12 +34,6 @@
   line-height: 2;
   padding: 10px 50px 10px 0!important;
   transition: all $transition-time ease;
-  margin-bottom: 8px;
-
-  @include for-mobile {
-    font-size: 12px!important;
-    margin-bottom: 4px;
-  }
 
   &::placeholder {
     color: $color-light;
