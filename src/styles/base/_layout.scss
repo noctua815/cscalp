@@ -110,11 +110,6 @@
     justify-content: space-around;
     border-bottom: 1px solid $color-light;
 
-    @include for-mobile {
-      //flex-wrap: wrap;
-      //border: none;
-    }
-
     & > div {
       display: flex;
       align-items: center;
@@ -620,6 +615,10 @@
 
   &__title {
     margin-bottom: clamp-calc(720px, 1440px, 16px, 32px);
+
+    h4 {
+      width: 95%;
+    }
   }
 
   &__arrow {

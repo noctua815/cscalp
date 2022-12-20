@@ -30,10 +30,11 @@
   line-height: 2;
   padding: 10px 50px 10px 0!important;
   transition: all $transition-time ease;
-
+  margin-bottom: 8px;
 
   @include for-mobile {
     font-size: 12px!important;
+    margin-bottom: 4px;
   }
 
   &::placeholder {
@@ -52,11 +53,15 @@
 }
 
 .sp-form .sp-button-container {
-  margin-top: clamp-calc(720px, 1440px, 16px, 32px) !important;
+  margin-top: clamp-calc(720px, 1440px, 24px, 32px) !important;
 }
 
 .sp-form .sp-field {
   padding: 0!important;
+}
+
+.sp-field + .sp-field {
+  margin-top: 12px;
 }
 
 .sp-form[sp-id="218393"] .sp-button{
@@ -98,3 +103,70 @@
   opacity: 0;
   visibility: hidden;
 }
+
+.sp-checkbox-option {
+  position: relative;
+
+  input {
+    position: absolute!important;
+    visibility: hidden;
+    width: 0!important;
+    margin: 0!important;
+
+    &:checked + .pse-label {
+      &:after {
+        opacity: 1;
+        background-image: url('../images/checked.svg');
+      }
+    }
+  }
+
+  span {
+    color: $color-light;
+  }
+
+  .pse-label {
+    position: relative;
+    padding-left: clamp-calc(720px, 1440px, 24px, 32px);
+    font-size: clamp-calc(720px, 1440px, 12px, 16px);
+    cursor: pointer;
+    white-space: nowrap;
+
+    @include for-mobile {
+      white-space: normal;
+      line-height: 1.33;
+    }
+
+    &:after,
+    &:before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: 0;
+      width: clamp-calc(720px, 1440px, 16px, 20px);
+      height: clamp-calc(720px, 1440px, 16px, 20px);
+    }
+
+    &:before {
+      border: 1px solid $color-light;
+      transition: all 0.3s ease;
+    }
+
+    &:after {
+      opacity: 0;
+      background-repeat: no-repeat;
+      background-size: 10px 10px;
+      background-position: center;
+      transition: all 0.3s ease;
+    }
+
+    a {
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+

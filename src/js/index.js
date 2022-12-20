@@ -29,21 +29,38 @@ const initSubscribe = () => {
   const form = document.querySelector('form.sp-element-container')
   const btn = form.querySelector('button')
   const input = form.querySelector('input')
+  const checkboxes = form.querySelectorAll('input[type="checkbox"]')
+  let checkedCheckboxes = false
   
-  input.addEventListener('input', (event) => {
-    const email = event.target.value
-    const valid = validateEmail(email)
-
-    if (valid) {
+  const checkBtn = (checkedCount) => {
+    const emailValid = validateEmail(input.value)
+    const allChecked = checkedCount === 2
+    if (emailValid && allChecked) {
       btn.classList.remove('is-disabled')
     } else {
       btn.classList.add('is-disabled')
     }
+  }
+  
+  for (let box of checkboxes) {
+    box.addEventListener('change', event => {
+      if (event.target.checked) {
+        checkedCheckboxes += 1
+      } else {
+        checkedCheckboxes -= 1
+      }
+      checkBtn(checkedCheckboxes)
+    })
+  }
+  
+  input.addEventListener('input', (event) => {
+    checkBtn(checkedCheckboxes)
   })
   btn.addEventListener('click', (event) => {
     sendMetric()
   })
 }
+
 
 const sendMetric = async () => {
   const email = document.querySelector('input.sp-form-control').value

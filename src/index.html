@@ -22,37 +22,57 @@
   
   <!-- Meta Pixel Code -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1514380302364184');
-    fbq('track', 'PageView');
+    !function(f, b, e, v, n, t, s) {
+      if (f.fbq) return
+      n = f.fbq = function() {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      }
+      if (!f._fbq) f._fbq = n
+      n.push = n
+      n.loaded = !0
+      n.version = '2.0'
+      n.queue = []
+      t = b.createElement(e)
+      t.async = !0
+      t.src = v
+      s = b.getElementsByTagName(e)[0]
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js')
+    fbq('init', '1514380302364184')
+    fbq('track', 'PageView')
   </script>
   <noscript><img height="1" width="1" style="display:none"
                  src="https://www.facebook.com/tr?id=1514380302364184&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Meta Pixel Code -->
   <!-- Yandex.Metrika counter -->
-  <script type="text/javascript" >
-    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-      m[i].l=1*new Date();
-      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+  <script type="text/javascript">
+    (function(m, e, t, r, i, k, a) {
+      m[i] = m[i] || function() {
+        (m[i].a = m[i].a || []).push(arguments)
+      }
+      m[i].l = 1 * new Date()
+      for (var j = 0; j < document.scripts.length; j++) {
+        if (document.scripts[j].src === r) {
+          return
+        }
+      }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+    (window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym')
     
-    ym(91482752, "init", {
-      clickmap:true,
-      trackLinks:true,
-      accurateTrackBounce:true,
-      webvisor:true
-    });
+    ym(91482752, 'init', {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: true
+    })
   </script>
-  <noscript><div><img src="https://mc.yandex.ru/watch/91482752" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/91482752" style="position:absolute; left:-9999px;" alt=""/></div>
+  </noscript>
   <!-- /Yandex.Metrika counter -->
 </head>
 
@@ -123,7 +143,8 @@
               <h3 class="blue-text">
                 By the CScalp Team
               </h3>
-              <p class="medium-text">Crypto scalping is the most profitable type of trading. Learn how to scalp cryptocurrency for FREE!</p>
+              <p class="medium-text">Crypto scalping is the most profitable type of trading. Learn how to scalp
+                cryptocurrency for FREE!</p>
             </div>
             </di>
           </div>
@@ -345,7 +366,7 @@
             <div id="subscribe-form" class="subscribe-form">
               <a name="subscribe"></a>
               <div class="subscribe-form__title">
-                <h4>To download the course, enter your<br>E-mail address</h4>
+                <h4>To download the course, enter your E-mail address</h4>
               </div>
               <div class="subscribe-form__arrow"></div>
               <!-- Subscription Form -->
@@ -359,23 +380,40 @@
                     <div class="sp-message">
                       <div></div>
                     </div>
-                    <form novalidate="" class="sp-element-container sp-field-nolabel" onsubmit="ym('91482752', 'reachGoal', '273833838'); return true;">
+                    <form novalidate="" class="sp-element-container sp-field-nolabel ">
                       <div class="sp-field " sp-id="sp-40c7f72c-e0db-4f5e-a97f-3671b8f29848">
-                        <label
-                          class="sp-control-label"
-                        >
+                        <label class="sp-control-label">
                           <span>Email</span>
                           <strong>*</strong>
                         </label>
-                        <input type="email" sp-type="email"
-                               name="sform[email]" class="sp-form-control "
-                               placeholder="username@gmail.com"
-                               sp-tips="%7B%22required%22%3A%22Required%20field%22%2C%22wrong%22%3A%22Wrong%20email%22%7D"
-                               autocomplete="off" required="required"
-                        >
+                        <input type="email" sp-type="email" name="sform[email]" class="sp-form-control "
+                              placeholder="username@gmail.com"
+                              sp-tips="%7B%22required%22%3A%22Required%20field%22%2C%22wrong%22%3A%22Wrong%20email%22%7D"
+                              autocomplete="on" required="required">
+                      </div>
+                      <div class="sp-field " sp-id="sp-ff1ff767-6754-47ad-ae03-d4e84a717a98">
+                        <div class="sp-checkbox-option">
+                          <label>
+                            <input type="checkbox" sp-type="gdprConfirm"
+                                  name="sform[Z2RwckNvbmZpcm0=]" value="yes"
+                                  sp-tips="%7B%22required%22%3A%22Required%20field%22%7D"
+                                  class=" " required="required">
+                            <span class="pse-label">I agree to processing of my personal data <span><strong>*</strong></span></span></label>
+                        </div>
+                      </div>
+                      <div class="sp-field " sp-id="sp-49e41644-22a9-453c-9f98-d3fd7c520cda">
+                        <div class="sp-checkbox-option">
+                          <label>
+                            <input type="checkbox" sp-type="gdprTerms"
+                                name="sform[Z2RwclRlcm1z]" value="yes"
+                                sp-tips="%7B%22required%22%3A%22Required%20field%22%7D"
+                                class=" " required="required">
+                            <span class="pse-label">I read and understood the <a href="https://fsr-develop.com/personaldataprocessingpolicy" target="_blank">Privacy Policy</a> <span><strong>*</strong></span></span>
+                          </label>
+                        </div>
                       </div>
                       <div class="sp-field sp-button-container " sp-id="sp-50309404-25a7-4a33-9b45-d6ed6900fd95">
-                        <button id="sp-50309404-25a7-4a33-9b45-d6ed6900fd95" class="sp-button is-disabled">Get the course</button>
+                        <button id="sp-50309404-25a7-4a33-9b45-d6ed6900fd95" class="sp-button is-disabled">Subscribe</button>
                       </div>
                     </form>
                     <div class="sp-link-wrapper sp-brandname__left"></div>
@@ -383,11 +421,7 @@
                 </div>
               </div>
               <script type="text/javascript" async="async"
-                      src="//web.webformscr.com/apps/fc3/build/default-handler.js?1669793868129"
-              ></script>
-              
-              <script src="//web.webformscr.com/apps/fc3/build/loader.js" async
-                      sp-form-id="91853e513aa642bb9a9b083e2af370d8ab7cca37ff43d21429cc2b30719f24ab"
+                      src="//web.webformscr.com/apps/fc3/build/default-handler.js?1670496749843"
               ></script>
               <!-- /Subscription Form -->
             </div>
